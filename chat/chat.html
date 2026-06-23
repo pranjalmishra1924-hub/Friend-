@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Friend</title>
+
+<link rel="stylesheet" href="chat.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<!-- Aurora -->
+<div class="aurora aurora1"></div>
+<div class="aurora aurora2"></div>
+<div class="aurora aurora3"></div>
+
+<!-- Mouse Spotlight -->
+
+<div class="spotlight"></div>
+
+<!-- Stars -->
+
+<div id="stars"></div>
+
+<!-- Dust -->
+
+<div id="dust"></div>
+
+<!-- Noise -->
+
+<div class="noise"></div>
+
+<!-- APP -->
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+ <aside class="sidebar">
+
+        <div class="logo">
+            🌱 FRIEND
+        </div>
+<nav>
+    <a id="homeLink" href="../homepage/hp.html">🏠 Home</a>
+
+    <a id="chatLink" href="/chat/chat.html">💬 Chat</a>
+
+    <a id="diaryLink" href="../assets/dairy/dairy.html">📔 Diary</a>
+
+    <a id="visionLink" href="../vision/vision.html">🌟 Vision Board</a>
+
+    <a id="goalsLink" href="../goals/goals.html">🎯 Goals</a>
+
+    <a id="studyLink" href="../study/study.html">📚 Study Space</a>
+
+    <a id="dreamLink" href="../dream/dream.html">🌙 Dream Journal</a>
+
+    <a id="memoryLink" href="../memories/memories.html">📷 Memories</a>
+
+    <a id="voiceLink" href="../voice/voice.html">🎤 Voice Notes</a>
+
+    <a id="focusLink" href="../focus/focus.html">⏰ Focus Timer</a>
+
+    <a id="gardenLink" href="../garden/garden.html">🌱 Growth Garden</a>
+</nav>
+       
+
+    </aside>
+    
+
+    <!-- CHAT -->
+
+    <main class="chat-wrapper">
+
+        <!-- LUNA HEADER -->
+
+        <section class="hero-card">
+
+            <div class="border-rotate"></div>
+
+            <div class="hero-content">
+
+                <h1 class="luna-name">
+
+                    ✦ Luna
+
+                </h1>
+
+                <div class="online-status">
+
+                    <span class="online-dot"></span>
+
+                    Online
+
+                </div>
+
+                <div class="hero-subtitle">
+
+                    Always here to listen.
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- CHAT AREA -->
+
+        <section class="messages">
+
+            <div class="message luna">
+
+                <div class="bubble">
+
+                    What's today's story bro😎?
+
+                </div>
+
+            </div>
+
+            <div class="message user">
+
+                
+
+            </div>
+
+            
+
+        </section>
+
+        <!-- INPUT -->
+<div id="imagePreviewContainer"></div>
+        <div class="input-container">
+
+            <input
+            id="messageInput"
+            type="text"
+            placeholder="Ask Luna anything...">
+ <div class="more-wrapper">
+
+    <button class="more" id="more">
+        ✦
+    </button>
+
+    <div class="more-menu" id="moreMenu">
+
+        <button id="newChatBtn">
+            ✨ New Chat
+        </button>
+
+        <label>
+            📷 Photos
+            <input type="file" hidden accept="image/*">
+        </label>
+
+        <label>
+            📄 Files
+            <input type="file" hidden>
+        </label>
+
+        <button>
+            camera
+        </button>
+
+    </div>
+
+</div>
+            <button class="send-btn">
+
+                <svg viewBox="0 0 24 24">
+
+                    <path
+                    d="M5 12H19"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"/>
+
+                    <path
+                    d="M13 6L19 12L13 18"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"/>
+
+                </svg>
+
+            </button>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="chat.js"></script>
+
+</body>
+</html>

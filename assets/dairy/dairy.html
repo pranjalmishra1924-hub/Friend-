@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orbloom Diary</title>
+
+<link rel="stylesheet" href="dairy.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<div class="app">
+ <!-- SIDEBAR -->
+ <aside class="sidebar">
+
+        <div class="logo">
+            🌱 FRIEND
+        </div>
+<nav>
+    <a id="homeLink" href="/homepage/hp.html">🏠 Home</a>
+
+    <a id="chatLink" href="/chat/chat.html">💬 Chat</a>
+
+    <a id="diaryLink" href="/assets/dairy/dairy.html">📔 Diary</a>
+
+    <a id="visionLink" href="../vision/vision.html">🌟 Vision Board</a>
+
+    <a id="goalsLink" href="../goals/goals.html">🎯 Goals</a>
+
+    <a id="studyLink" href="../study/study.html">📚 Study Space</a>
+
+    <a id="dreamLink" href="../dream/dream.html">🌙 Dream Journal</a>
+
+    <a id="memoryLink" href="../memories/memories.html">📷 Memories</a>
+
+    <a id="voiceLink" href="../voice/voice.html">🎤 Voice Notes</a>
+
+    <a id="focusLink" href="../focus/focus.html">⏰ Focus Timer</a>
+
+    <a id="gardenLink" href="../garden/garden.html">🌱 Growth Garden</a>
+</nav>
+       
+
+    </aside>
+   
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <header>
+
+            <div>
+                <h1 id="welcomeText"></h1>
+                <p>How is your universe feeling today?</p>
+            </div>
+
+            <div class="top-right">
+
+                <input
+                type="text"
+                placeholder="Search entries...">
+
+                <i class="fa-regular fa-bell"></i>
+
+            </div>
+
+        </header>
+
+        <div class="content">
+
+            <!-- DIARY -->
+
+            <section class="diary-card">
+
+                <div class="card-top">
+
+                    <h2> Today's Diary</h2>
+
+                    <div>
+
+                        <button class="draw-btn">
+                            Draw
+                        </button>
+
+                        <button id="saveBtn">
+                            Save
+                        </button>
+
+                    </div>
+
+                </div>
+
+               <div class="toolbar">
+
+    <button id="boldBtn">
+        <b>B</b>
+    </button>
+
+    <button id="italicBtn">
+        <i>I</i>
+    </button>
+
+    <button id="underlineBtn">
+        <u>U</u>
+    </button>
+
+</div>
+<div id="editorWrapper" class="editor-wrapper">
+
+    <div class="aurora"></div>
+
+    <div class="stars-layer"></div>
+
+    <div id="editor" contenteditable="true">
+
+        Dear Diary,
+
+    </div>
+
+</div>
+
+
+
+                <div class="bottom-tools">
+
+                    <button>📷 Add Photo</button>
+                    <button>🎤 Add Voice</button>
+                    <button>✨ Add Drawing</button>
+
+                </div>
+
+            </section>
+
+            <!-- RIGHT PANEL -->
+
+            <section class="mood-card">
+
+                <h2>Mood Galaxy</h2>
+
+                <p>How are you feeling?</p>
+
+               <div class="mood-grid">
+
+    <button class="mood-btn" data-mood="happy">😊 Happy</button>
+
+    <button class="mood-btn" data-mood="sad">😔 Sad</button>
+
+    <button class="mood-btn" data-mood="calm">😌 Calm</button>
+
+    <button class="mood-btn" data-mood="motivated">🚀 Motivated</button>
+
+    <button class="mood-btn" data-mood="angry">😡 Angry</button>
+
+    <button class="mood-btn" data-mood="dreamy">🌙 Dreamy</button>
+
+</div>
+            </section>
+
+        </div>
+
+        <!-- TIMELINE -->
+
+        <section class="timeline">
+
+    <h2> Your Timeline</h2>
+
+    <div
+        id="timelineContainer"
+        class="timeline-cards">
+    </div>
+
+</section>
+
+    </main>
+
+</div>
+
+<script src="dairy.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Friend Login</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#0d0628,#1c1147,#301b6d);
+overflow:hidden;
+}
+
+.login-card{
+width:420px;
+padding:40px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,0.15);
+border-radius:30px;
+text-align:center;
+color:white;
+box-shadow:0 0 40px rgba(183,0,255,0.4);
+}
+
+.logo{
+font-size:42px;
+margin-bottom:10px;
+}
+
+h1{
+margin-bottom:10px;
+}
+
+.subtitle{
+color:#cfc7ff;
+margin-bottom:30px;
+}
+
+.social-btn{
+width:100%;
+padding:14px;
+margin-bottom:15px;
+border:none;
+border-radius:15px;
+font-size:16px;
+cursor:pointer;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+transition:0.3s;
+}
+
+.google{
+background:white;
+color:black;
+}
+
+.github{
+background:#171515;
+color:white;
+}
+
+.social-btn:hover{
+transform:translateY(-3px);
+}
+
+.divider{
+margin:20px 0;
+position:relative;
+}
+
+.divider::before,
+.divider::after{
+content:"";
+position:absolute;
+top:50%;
+width:40%;
+height:1px;
+background:rgba(255,255,255,0.2);
+}
+
+.divider::before{
+left:0;
+}
+
+.divider::after{
+right:0;
+}
+
+.divider span{
+color:#bbb;
+}
+
+.email-btn{
+width:100%;
+padding:15px;
+background:#8b5cf6;
+border:none;
+border-radius:15px;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.email-btn:hover{
+background:#9f7aea;
+}
+
+.footer{
+margin-top:20px;
+font-size:14px;
+}
+
+.footer a{
+color:#b48dff;
+text-decoration:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="login-card">
+
+<div class="logo">🌌</div>
+
+<h1>Welcome to Orbloom</h1>
+
+<p class="subtitle">
+Your AI Companion for Growth
+</p>
+
+<button class="social-btn google" onclick="googleLogin()">
+    <img src="https://www.svgrepo.com/show/475656/google-color.svg" width="20">
+    Continue with Google
+</button>
+
+<button class="social-btn github">
+Continue with GitHub
+</button>
+
+<div class="divider">
+<span>OR</span>
+</div>
+
+<button class="email-btn" onclick="window.location.href='signup.html'">
+Continue with Email
+</button>
+
+<div class="footer">
+Don't have an account?
+<a href="signup.html">Sign Up</a>
+</div>
+
+</div>
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBShrpp7PlYyJewPxxN_wZ9FyOqvVv5ix0",
+  authDomain: "friend-8a568.firebaseapp.com",
+  projectId: "friend-8a568",
+  appId: "1:712848803420:web:a92967283c817cd30a8899"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+window.googleLogin = async function () {
+
+  const provider = new GoogleAuthProvider();
+
+  try {
+    const result = await signInWithPopup(auth, provider);
+
+    const user = result.user;
+
+ localStorage.setItem("orbloom_user", JSON.stringify({
+    uid: user.uid,
+    name: user.displayName,
+    email: user.email,
+    photo: user.photoURL
+}));
+
+    alert("Welcome " + user.displayName);
+
+    // GO TO MAIN APP
+    window.location.href = "homepage/hp.html";
+
+  } catch (err) {
+    console.log("FULL ERROR:", err);
+    alert(err.message);
+}
+};
+function editName() {
+
+    const user =
+    JSON.parse(localStorage.getItem("orbloom_user"));
+
+    const newName =
+    prompt("Enter new name:");
+
+    if(!newName) return;
+
+    user.displayName = newName;
+
+    localStorage.setItem(
+        "orbloom_user",
+        JSON.stringify(user)
+    );
+
+    document.getElementById("userName")
+    .textContent = `Hi ${newName} 👋`;
+}
+</script>
+</body>
+</html>

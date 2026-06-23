@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Friend Universe</title>
+
+<link rel="stylesheet" href="hp.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="app">
+<div id="space-bg">
+
+    <svg id="stars"></svg>
+
+    <div class="aurora aurora1"></div>
+
+    <div class="aurora aurora2"></div>
+
+    <div class="aurora aurora3"></div>
+
+</div>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            🌱 FRIEND
+        </div>
+
+        <nav>
+
+            <a class="active">🏠 Home</a>
+<a onclick="window.location.href='/chat/chat.html'">
+    💬 Chat
+</a>
+            
+
+            <a onclick="window.location.href='../assets/dairy/dairy.html'">📔 Diary</a>
+
+            <a>🌟 Vision Board</a>
+
+            <a>🎯 Goals</a>
+
+           
+
+            <a>🌙 Dream Journal</a>
+
+            <a>📷 Memories</a>
+
+            <a>🎤 Voice Notes</a>
+
+            <a>⏰ Focus Timer</a>
+
+            <a>🌱 Growth Garden</a>
+
+        </nav>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main class="main">
+
+        <div class="topbar">
+
+            <input
+            type="text"
+            placeholder="Search anything...">
+
+            <div class="icons">
+                🔔 ⚙ 👤
+            </div>
+<div class="user-greeting">
+
+    <span id="userName" onclick="toggleProfileMenu()">
+        Hi Friend ♡
+    </span>
+
+    <div id="profileMenu" class="profile-menu">
+
+        <div onclick="editName()">
+            ✏️ Edit Name
+        </div>
+
+        <div onclick="logout()">
+            🚪 Logout
+        </div>
+
+    </div>
+
+</div>
+        </div>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <h1>
+                    Welcome To<br>
+                    Your Universe
+                </h1>
+
+                <p>
+                    Every dream, goal, memory and conversation
+                    in one beautiful place.
+                </p>
+
+            </div>
+
+            <div class="orbloom">
+                🌱
+            </div>
+
+        </section>
+
+        <section class="cards">
+<div class="card large"
+onclick="window.location.href='../chat/chat.html'">
+
+    💬 Chat
+
+</div>
+            
+
+            <div class="card large"
+            onclick="window.location.href='../assets/dairy/dairy.html'">📔 Diary</div>
+
+            <div class="card">🌟 Vision Board</div>
+
+            <div class="card">🎯 Goals</div>
+
+            <div class="card">📚 Study Space</div>
+
+            <div class="card">🌙 Dream Journal</div>
+
+            <div class="card">📷 Memories</div>
+
+            <div class="card">🎤 Voice Notes</div>
+
+            <div class="card">⏰ Focus Timer</div>
+
+            <div class="card">🌱 Growth Garden</div>
+
+        </section>
+
+    </main>
+
+</div>
+<script src="hp.js"></script>
+
+</body>
+</html>
