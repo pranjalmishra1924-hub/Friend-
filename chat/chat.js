@@ -190,7 +190,7 @@ if (pastedImages.length > 0) {
 }
 
 const response = await fetch(
-    "http://localhost:3000/chat",
+    "https://friend-10jz.onrender.com/chat",
     {
         method: "POST",
         body: formData
