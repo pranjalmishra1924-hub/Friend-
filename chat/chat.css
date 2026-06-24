@@ -1316,7 +1316,9 @@ overflow: visible;
 /* =========================
    MOBILE RESPONSIVE
 ========================= */
-
+.mobile-topbar{
+    display:none;
+}
 @media (max-width:768px){
 
     .app{
@@ -1325,19 +1327,67 @@ overflow: visible;
         height:100vh;
     }
 
-    .sidebar{
-        display:none;
+      .sidebar{
+        width:85%;
+        max-width:300px;
     }
+.mobile-topbar{
 
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:15px;
+
+    margin-bottom:10px;
+
+    border-radius:18px;
+
+    background:
+    rgba(255,255,255,.05);
+
+    backdrop-filter:blur(18px);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    flex-shrink:0;
+}
+
+.mobile-title{
+
+    font-size:20px;
+    font-weight:700;
+
+    color:white;
+}
+
+.menu-btn-mobile{
+
+    width:42px;
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:
+    rgba(255,255,255,.08);
+
+    color:white;
+
+    font-size:22px;
+}
     .chat-wrapper{
         width:100%;
         height:100%;
     }
 
     .hero-card{
-        height:auto;
-        min-height:120px;
-    }
+    display:none;
+}
 
     .messages{
         padding:5px;
@@ -1347,8 +1397,13 @@ overflow: visible;
         max-width:90%;
     }
 
-    .input-container{
-        height:70px;
+      .input-container{
+
+        height:80px;
+
+        flex-shrink:0;
+
+        margin-bottom:10px;
     }
 
     .send-btn{
