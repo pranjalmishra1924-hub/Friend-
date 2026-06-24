@@ -190,7 +190,7 @@ if (pastedImages.length > 0) {
 }
 
 const response = await fetch(
-    "https://friend-10jz.onrender.com/chat",
+    "https://friend-10jz.onrender.com/chat",  
     {
         method: "POST",
         body: formData
@@ -374,5 +374,15 @@ function showPreview(file) {
 
 
 
+const menuBtn =
+document.getElementById("menuBtn");
 
+const sidebar =
+document.querySelector(".sidebar");
+
+menuBtn.addEventListener("click",()=>{
+
+    sidebar.classList.toggle("open");
+
+});
  
