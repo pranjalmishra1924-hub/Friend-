@@ -74,7 +74,6 @@ window.addEventListener("DOMContentLoaded", () => {
             `Hi ${user.name} ♡`;
 
     }
-
 });
 function toggleProfileMenu(){
 
