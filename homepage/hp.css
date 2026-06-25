@@ -149,37 +149,9 @@ body{
     #05010f;
 }
 
-/* =========================
-   SIDEBAR
-========================= */
-
-.sidebar{
-
-    width:280px;
-
-    padding:30px;
-
-    background:
-    rgba(255,255,255,.04);
-
-    backdrop-filter:blur(25px);
-
-    border-right:
-    1px solid rgba(255, 255, 255, 0.463);
-
-    box-shadow:
-    0 0 30px rgba(139,92,246,.15);
-
-    position:fixed;
-
-    top:0;
-    left:0;
-
-    height:100vh;
-}
-
 .logo{
-
+ position:relative;
+    z-index:9999;
     color:white;
 
     font-size:32px;
@@ -190,47 +162,7 @@ body{
 
     text-shadow:
     0 0 20px #8b5cf6;
-}
-
-.sidebar nav{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:12px;
-}
-
-.sidebar nav a{
-
-    padding:15px 18px;
-
-    border-radius:18px;
-
-    color:#ddd;
-
-    text-decoration:none;
-
-    transition:.35s;
-
-    cursor:pointer;
-}
-
-.sidebar nav a:hover,
-.sidebar nav a.active{
-
-    color:white;
- background:linear-gradient(
-        135deg,
-        #d946ef 0%,
-        #8b5cf6 40%,
-        #3b82f6 75%,
-        #22d3ee 100%
-    );
    
-
-    box-shadow:
-    0 0 20px rgba(139,92,246,.5);
 }
 
 /* =========================
@@ -241,7 +173,7 @@ body{
 
     flex:1;
 
-    margin-left:280px;
+    
 
     padding:40px;
 }

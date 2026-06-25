@@ -1316,21 +1316,39 @@ overflow: visible;
 /* =========================
    MOBILE RESPONSIVE
 ========================= */
-.mobile-topbar{
-    display:none;
-}
 @media (max-width:768px){
 
-    .app{
-        padding:10px;
-        gap:10px;
-        height:100vh;
-    }
+html,
+body{
+    height:100%;
+    overflow:hidden;
+}
 
-      .sidebar{
-        width:85%;
-        max-width:300px;
-    }
+.app{
+    padding:0;
+    gap:0;
+    height:100vh;
+}
+
+.chat-wrapper{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    flex-direction:column;
+
+    overflow:hidden;
+}
+
+/* Hide desktop hero */
+
+.hero-card{
+    display:none;
+}
+
+/* Topbar */
+
 .mobile-topbar{
 
     display:flex;
@@ -1339,125 +1357,63 @@ overflow: visible;
 
     gap:15px;
 
+    height:70px;
+
+    padding:0 15px;
+
+    flex-shrink:0;
+
+    background:rgba(10,10,20,.85);
+
+    backdrop-filter:blur(20px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+/* Messages */
+
+.messages{
+
+    flex:1;
+
+    min-height:0;
+
+    overflow-y:auto;
+
+    overflow-x:hidden;
+
     padding:15px;
 
-    margin-bottom:10px;
+    display:flex;
 
-    border-radius:18px;
+    flex-direction:column;
 
-    background:
-    rgba(255,255,255,.05);
+    gap:15px;
 
-    backdrop-filter:blur(18px);
+    scroll-behavior:smooth;
+}
 
-    border:
-    1px solid rgba(255,255,255,.08);
+/* Preview */
 
+#imagePreviewContainer{
     flex-shrink:0;
 }
 
-.mobile-title{
+/* Input */
 
-    font-size:20px;
-    font-weight:700;
+.input-container{
 
-    color:white;
+    flex-shrink:0;
+
+    height:80px;
+
+    margin:0;
+
+    border-radius:0;
+
+    border-left:none;
+    border-right:none;
+    border-bottom:none;
 }
-
-.menu-btn-mobile{
-
-    width:42px;
-    height:42px;
-
-    border:none;
-
-    border-radius:12px;
-
-    background:
-    rgba(255,255,255,.08);
-
-    color:white;
-
-    font-size:22px;
-}
-    .chat-wrapper{
-        width:100%;
-        height:100%;
-    }
-
-    .hero-card{
-    display:none;
-}
-
-    .messages{
-        padding:5px;
-    }
-
-    .bubble{
-        max-width:90%;
-    }
-
-      .input-container{
-
-        height:80px;
-
-        flex-shrink:0;
-
-        margin-bottom:10px;
-    }
-
-    .send-btn{
-        width:50px;
-        height:50px;
-    }
-
-}
-
-.menu-btn-mobile{
-    display:none;
-}
-
-@media(max-width:768px){
-
-    .menu-btn-mobile{
-        display:block;
-
-        position:fixed;
-
-        top:15px;
-        left:15px;
-
-        z-index:9999;
-
-        width:50px;
-        height:50px;
-
-        border:none;
-
-        border-radius:12px;
-
-        color:white;
-
-        background:#8b5cf6;
-    }
-
-    .sidebar{
-        display:block;
-
-        position:fixed;
-
-        left:-300px;
-        top:0;
-
-        width:280px;
-
-        z-index:9998;
-
-        transition:.3s;
-    }
-
-    .sidebar.open{
-        left:0;
-    }
 
 }

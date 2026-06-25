@@ -112,6 +112,6 @@ function editName(){
     );
 
     document.getElementById("userName")
-    .textContent = `Hi ${newName} 👋`;
+    .textContent = `Hi ${newName} ♡`;
 
 }
