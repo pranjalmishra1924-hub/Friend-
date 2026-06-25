@@ -1316,7 +1316,7 @@ overflow: visible;
 /* =========================
    MOBILE RESPONSIVE
 ========================= */
-@media (max-width:768px){
+@media(max-width:768px){
 
 html,
 body{
@@ -1325,12 +1325,17 @@ body{
 }
 
 .app{
+    height:100vh;
     padding:0;
     gap:0;
-    height:100vh;
 }
 
 .chat-wrapper{
+
+    position:fixed;
+
+    top:0;
+    left:0;
 
     width:100%;
     height:100vh;
@@ -1341,37 +1346,59 @@ body{
     overflow:hidden;
 }
 
-/* Hide desktop hero */
-
-.hero-card{
-    display:none;
 }
-
-/* Topbar */
-
 .mobile-topbar{
 
     display:flex;
 
     align-items:center;
 
-    gap:15px;
+    gap:14px;
 
     height:70px;
 
-    padding:0 15px;
+    padding:0 16px;
 
     flex-shrink:0;
 
-    background:rgba(10,10,20,.85);
+    background:
+    rgba(10,10,25,.85);
+
+    backdrop-filter:blur(25px);
+
+    border-bottom:
+    1px solid rgba(255,255,255,.08);
+
+    z-index:100;
+}
+
+.mobile-title{
+
+    font-size:18px;
+    font-weight:700;
+    color:white;
+}
+.menu-btn-mobile{
+
+    width:42px;
+    height:42px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:
+    rgba(255,255,255,.08);
+
+    color:white;
+
+    font-size:22px;
 
     backdrop-filter:blur(20px);
 
-    border-bottom:1px solid rgba(255,255,255,.08);
+    box-shadow:
+    0 0 15px rgba(139,92,246,.25);
 }
-
-/* Messages */
-
 .messages{
 
     flex:1;
@@ -1382,30 +1409,19 @@ body{
 
     overflow-x:hidden;
 
-    padding:15px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:15px;
+    padding:18px;
 
     scroll-behavior:smooth;
 }
 
-/* Preview */
-
-#imagePreviewContainer{
-    flex-shrink:0;
+.messages::-webkit-scrollbar{
+    display:none;
 }
-
-/* Input */
-
 .input-container{
 
     flex-shrink:0;
 
-    height:80px;
+    height:85px;
 
     margin:0;
 
@@ -1414,6 +1430,52 @@ body{
     border-left:none;
     border-right:none;
     border-bottom:none;
+
+    background:
+    rgba(10,10,25,.88);
+
+    backdrop-filter:blur(30px);
+}
+.sidebar{
+
+    position:fixed;
+
+    top:0;
+    left:-300px;
+
+    width:280px;
+
+    height:100vh;
+
+    z-index:9999;
+
+    transition:.3s;
 }
 
+.sidebar.open{
+    left:0;
+}
+#sidebarOverlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    rgba(0,0,0,.55);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:9998;
+}
+
+#sidebarOverlay.show{
+
+    opacity:1;
+
+    visibility:visible;
 }

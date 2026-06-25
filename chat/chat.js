@@ -374,15 +374,56 @@ function showPreview(file) {
 
 
 
-const menuBtn =
-document.getElementById("menuBtn");
-
 const sidebar =
 document.querySelector(".sidebar");
 
-menuBtn.addEventListener("click",()=>{
+const overlay =
+document.getElementById("sidebarOverlay");
 
-    sidebar.classList.toggle("open");
+const menuBtn =
+document.getElementById("menuBtn");
 
+menuBtn.onclick = () => {
+
+    sidebar.classList.add("open");
+
+    overlay.classList.add("show");
+};
+
+overlay.onclick = () => {
+
+    sidebar.classList.remove("open");
+
+    overlay.classList.remove("show");
+};
+
+let startX = 0;
+
+document.addEventListener(
+"touchstart",
+e => {
+
+    startX =
+    e.touches[0].clientX;
+});
+
+document.addEventListener(
+"touchmove",
+e => {
+
+    const currentX =
+    e.touches[0].clientX;
+
+    if(
+        startX < 25 &&
+        currentX > 90
+    ){
+
+        sidebar.classList.add(
+        "open");
+
+        overlay.classList.add(
+        "show");
+    }
 });
  
