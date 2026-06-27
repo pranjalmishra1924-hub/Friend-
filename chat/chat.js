@@ -373,4 +373,16 @@ function showPreview(file) {
 
 
 
+const imageInput = document.querySelector('input[type="file"][accept="image/*"]');
 
+imageInput.addEventListener("change", (e) => {
+
+    const file = e.target.files[0];
+    if (!file) return;
+
+    pastedImages.push(file);
+    showPreview(file);
+
+    // reset so same image can be selected again
+    e.target.value = "";
+});
