@@ -21,12 +21,12 @@ APP
 
 .app{
 
-    display:block;
+    display:block !important;
 
     width:100vw;
     height:100dvh;
 
-    padding:0;
+    padding:0 !important;
 
     overflow:hidden;
 
@@ -153,18 +153,27 @@ BUBBLES
 /*==========================
 INPUT
 ==========================*/
-
 .input-container{
+    display:flex;
+    align-items:center;
+    gap:8px;
 
-    flex:none;
-
-    height:82px;
-
-    border-radius:28px;
-
-    margin:0;
-
+    overflow:hidden;
 }
+
+.input-container input{
+    flex:1;
+    min-width:0;
+}
+
+.more,
+.send-btn{
+    width:48px;
+    height:48px;
+
+    flex-shrink:0;
+}
+
 
 
 /*==========================
@@ -254,7 +263,7 @@ NO DESKTOP EFFECTS REMOVED
 
 .sidebar{
 
-    position:fixed;
+    position:fixed !important;
 
     top:0;
     left:0;

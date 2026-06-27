@@ -19,7 +19,7 @@ function closeSidebar(){
     sidebar.classList.remove("open");
     overlay.classList.remove("show");
 
-    document.body.style.overflow="hidden";
+    document.body.style.overflow="";
 
 }
 
