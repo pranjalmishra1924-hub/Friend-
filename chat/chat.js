@@ -374,56 +374,77 @@ function showPreview(file) {
 
 
 
-const sidebar =
-document.querySelector(".sidebar");
+const sidebar=document.querySelector(".sidebar");
+const overlay=document.querySelector(".mobile-overlay");
+const menu=document.querySelector(".mobile-menu");
 
-const overlay =
-document.getElementById("sidebarOverlay");
+let startX=0;
+let currentX=0;
 
-const menuBtn =
-document.getElementById("menuBtn");
-
-menuBtn.onclick = () => {
+function openSidebar(){
 
     sidebar.classList.add("open");
-
     overlay.classList.add("show");
-};
 
-overlay.onclick = () => {
+    document.body.style.overflow="hidden";
+
+}
+
+function closeSidebar(){
 
     sidebar.classList.remove("open");
-
     overlay.classList.remove("show");
-};
 
-let startX = 0;
+    document.body.style.overflow="hidden";
 
-document.addEventListener(
-"touchstart",
-e => {
+}
 
-    startX =
-    e.touches[0].clientX;
+menu.addEventListener("click",openSidebar);
+
+overlay.addEventListener("click",closeSidebar);
+
+document.addEventListener("touchstart",(e)=>{
+
+    startX=e.touches[0].clientX;
+
 });
 
-document.addEventListener(
-"touchmove",
-e => {
+document.addEventListener("touchmove",(e)=>{
 
-    const currentX =
-    e.touches[0].clientX;
+    currentX=e.touches[0].clientX;
 
-    if(
-        startX < 25 &&
-        currentX > 90
-    ){
+    if(startX<18 && currentX>95){
 
-        sidebar.classList.add(
-        "open");
+        openSidebar();
 
-        overlay.classList.add(
-        "show");
     }
+
+    if(sidebar.classList.contains("open")){
+
+        if(currentX<startX-70){
+
+            closeSidebar();
+
+        }
+
+    }
+
 });
+
+window.addEventListener("resize",()=>{
+
+    scrollToBottom();
+
+});
+function scrollToBottom(){
+
+    const chat=document.querySelector(".messages");
+
+    requestAnimationFrame(()=>{
+
+        chat.scrollTop=chat.scrollHeight;
+
+    });
+
+}
  
