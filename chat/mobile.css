@@ -262,7 +262,7 @@ NO DESKTOP EFFECTS REMOVED
 /* Hide desktop sidebar */
 .sidebar{
     position:fixed !important;
-display:none !important;
+
     top:0;
     left:0;
 
@@ -753,7 +753,7 @@ input{
    FPS
 ========================== */
 
-.sidebar,
+
 .messages,
 .hero-card,
 .input-container{
