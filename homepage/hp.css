@@ -587,3 +587,30 @@ body{
     border:1px solid rgba(255,255,255,0.15);
     backdrop-filter:blur(10px);
 }
+
+
+
+
+
+
+
+/* PHONE SIZE */
+@media screen and (max-width:768px){
+
+    html,
+    body{
+        width:100%;
+        overflow-x:hidden;
+    }
+
+    .app{
+        width:100%;
+        min-height:100vh;
+    }
+
+    .main{
+        width:100%;
+        padding:15px;
+    }
+
+}
