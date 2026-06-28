@@ -1,3 +1,4 @@
+
 const axios = require("axios");
 const { v4: uuidv4 } = require("uuid");
 const conversations = {};
@@ -120,59 +121,43 @@ if (needsWebSearch) {
 
 }
 
-        const response = await fetch(
-            "https://openrouter.ai/api/v1/chat/completions",
-            {
-                method: "POST",
-                headers: {
-                    "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    model: "openai/gpt-4o-mini",
-                    messages: [
-                        {
-                            role: "system",
-                            content: `
+     const data = await response.json();
+console.log("=================================");
+console.log("HTTP Status:", response.status);
+console.log("Response:");
+console.log(JSON.stringify(data, null, 2));
+console.log("=================================");
+console.log("OpenRouter Response:", data);
+if (!response.ok || data.error) {
+    return res.status(response.status).json({
+        reply: data.error?.message || "Unknown OpenRouter error."
+    });
+}
 
-Today is ${new Date().toDateString()}.
+if (!response.ok || data.error) {
+    return res.status(500).json({
+        reply: data.error?.message || "OpenRouter request failed."
+    });
+}
 
-Current year: ${new Date().getFullYear()}.
+const friendReply = data.choices?.[0]?.message?.content;
 
-${webInfo ? `
-LATEST WEB INFORMATION:
+if (!friendReply) {
+    return res.status(500).json({
+        reply: "No response was returned from OpenRouter."
+    });
+}
 
-${webInfo}
-
-Use the web information above when answering.
-
-` : ""}
-
-ACT NATURALLY LIKE A HUMAN BEST FRIEND WOULD REACT IN A FUNNY MANNNER"
-
-                            `
-                        }, 
-                    ...conversations[userId]
-                   ]
-                })
-            }
-        );
-
-        const data = await response.json();
-const friendReply =
-    data.choices[0].message.content;
+if (!friendReply) {
+    return res.status(500).json({
+        reply: "No reply returned by OpenRouter."
+    });
+}
 
 conversations[userId].push({
     role: "assistant",
     content: friendReply
 });
-        console.log(data);
-
-        if (data.error) {
-            return res.status(500).json({
-                reply: `OpenRouter Error: ${data.error.message}`
-            });
-        }
 
       res.json({
     reply: friendReply
