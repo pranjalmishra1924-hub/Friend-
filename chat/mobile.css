@@ -1,43 +1,74 @@
 /*=========================================================
-        ORBBLOOM MOBILE V1
-        Desktop untouched
+            ORBBLOOM MOBILE.CSS
+                  PART 1
 =========================================================*/
 
 @media only screen and (max-width:768px){
+
+/*==================================
+RESET
+==================================*/
 
 html,
 body{
 
     width:100%;
     height:100%;
-    
-
-}
-
-
-/*==========================
-APP
-==========================*/
-
-.app{
-
-    display:block !important;
-
-    width:100vw;
-    height:100dvh;
-
-    padding:0 !important;
+    margin:0;
+    padding:0;
 
     overflow:hidden;
 
-    position:relative;
+    touch-action:pan-y;
+
+}
+
+*{
+
+    box-sizing:border-box;
+
+    -webkit-tap-highlight-color:transparent;
 
 }
 
 
-/*==========================
-CHAT
-==========================*/
+/*==================================
+APP
+==================================*/
+
+.app{
+
+    width:100vw;
+
+    height:100dvh;
+
+    display:block;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+/*==================================
+BACKGROUND
+==================================*/
+
+body{
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+}
+
+
+/*==================================
+CHAT WRAPPER
+==================================*/
 
 .chat-wrapper{
 
@@ -53,235 +84,41 @@ CHAT
 
     height:100dvh;
 
-    padding:12px;
-
-}
-
-
-/*==========================
-LUNA CARD
-==========================*/
-
-.hero-card{
-
-    flex:none;
-
-    height:92px;
-
-    border-radius:26px;
-
-    margin:0;
-
-    padding:20px;
-
-}
-
-
-/* keep same glow */
-
-.border-rotate{
-
-    display:block;
-
-}
-
-
-/* same glass */
-
-.hero-card::before{
-
-    display:block;
-
-}
-
-.hero-card::after{
-
-    display:block;
-
-}
-
-
-/*==========================
-MESSAGES
-==========================*/
-
-.messages{
-
-    flex:1;
-
-    overflow-y:auto;
-
-    overflow-x:hidden;
-
-    padding:18px 2px;
-
-    margin-top:10px;
-
-    margin-bottom:10px;
-
-    scroll-behavior:smooth;
-
-    -webkit-overflow-scrolling:touch;
-
-}
-
-
-/* Hide scrollbar */
-
-.messages::-webkit-scrollbar{
-
-    display:none;
-
-}
-
-
-/*==========================
-BUBBLES
-==========================*/
-
-.bubble{
-
-    max-width:84%;
-
-    padding:16px 18px;
-
-    border-radius:24px;
-
-}
-
-
-/*==========================
-INPUT
-==========================*/
-.input-container{
-    display:flex;
-    align-items:center;
-    gap:8px;
-
     overflow:visible;
-}
-
-.input-container input{
-    flex:1;
-    min-width:0;
-}
-
-.more,
-.send-btn{
-    width:48px;
-    height:48px;
-
-    flex-shrink:0;
-}
-
-
-
-/*==========================
-INPUT
-==========================*/
-
-.input-container input{
-
-    font-size:16px;
 
 }
 
 
-/*==========================
-BUTTONS
-==========================*/
+/*==================================
+SIDEBAR
+==================================*/
 
-.more{
-
-    width:54px;
-    height:54px;
-
-}
-
-.send-btn{
-
-    width:54px;
-    height:54px;
-
-}
-
-
-/*==========================
-LUNA TEXT
-==========================*/
-
-.luna-name{
-
-    font-size:25px;
-
-}
-
-.hero-subtitle{
-
-    font-size:13px;
-
-}
-
-.online-status{
-
-    font-size:13px;
-
-}
-
-
-/*==========================
-BACKGROUND
-==========================*/
-
-body{
-
-    background-size:cover;
-
-    background-position:center;
-
-}
-
-
-/*==========================
-NO DESKTOP EFFECTS REMOVED
-==========================*/
-
-.hero-card:hover{
-
-    transform:none;
-
-}
-
-}
-/*=====================================================
-      CHATGPT MOBILE SIDEBAR
-======================================================*/
-
-@media (max-width:768px){
-
-/* Hide desktop sidebar */
 .sidebar{
-    position:fixed !important;
+
+    position:fixed;
 
     top:0;
+
     left:0;
 
-    width:280px !important;
-    height:100dvh !important;
+    width:280px;
+
+    height:100dvh;
 
     transform:translateX(-100%);
 
-    z-index:9999;
-
-    margin:0 !important;
-
-    /* THIS IS IMPORTANT */
-    flex:0 0 auto !important;
     transition:transform .35s ease;
+
+    z-index:9998;
+
+    overflow-y:auto;
+
+    border-radius:0;
+
 }
 
 
-/* Open */
+/* Sidebar Open */
 
 .sidebar.open{
 
@@ -290,7 +127,9 @@ NO DESKTOP EFFECTS REMOVED
 }
 
 
-/* Dark background */
+/*==================================
+OVERLAY
+==================================*/
 
 .mobile-overlay{
 
@@ -308,12 +147,9 @@ NO DESKTOP EFFECTS REMOVED
 
     transition:.3s;
 
-    z-index:9998;
+    z-index:9997;
 
 }
-
-
-/* Show */
 
 .mobile-overlay.show{
 
@@ -324,21 +160,25 @@ NO DESKTOP EFFECTS REMOVED
 }
 
 
-/* Hamburger */
+/*==================================
+HAMBURGER
+==================================*/
 
 .mobile-menu{
 
     position:fixed;
 
-    top:32px;
-    left:24px;
+    top:26px;
 
-    width:42px;
-    height:42px;
+    left:18px;
+
+    width:46px;
+
+    height:46px;
 
     border:none;
 
-    border-radius:12px;
+    border-radius:14px;
 
     background:rgba(255,255,255,.08);
 
@@ -348,18 +188,19 @@ NO DESKTOP EFFECTS REMOVED
 
     font-size:22px;
 
-    cursor:pointer;
-
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
-    z-index:10001;
+    cursor:pointer;
+
+    z-index:9999;
 
     transition:.25s;
 
 }
-
 
 .mobile-menu:active{
 
@@ -368,165 +209,295 @@ NO DESKTOP EFFECTS REMOVED
 }
 
 
-/* Shift Luna title a little */
+/*==================================
+LUNA HEADER
+==================================*/
 
 .hero-card{
+
+    position:fixed;
+
+    left:12px;
+
+    right:12px;
+
+    top:12px;
+
+    height:92px;
 
     padding-left:72px;
 
-}
-
-}
-/*=========================================================
-        STEP 3 - CHATGPT STYLE CHAT LAYOUT
-=========================================================*/
-
-@media only screen and (max-width:768px){
-
-/*==========================
-CHAT WRAPPER
-==========================*/
-
-.chat-wrapper{
-
-    position:fixed;
-    inset:0;
-
-    display:flex;
-    flex-direction:column;
-
-    overflow:visible;
-
-}
-
-
-/*==========================
-FIXED LUNA CARD
-==========================*/
-
-.hero-card{
-
-    position:fixed;
-
-    top:12px;
-    left:12px;
-    right:12px;
-
-    height:92px;
+    border-radius:24px;
 
     z-index:100;
 
 }
 
 
-/*==========================
-MESSAGE AREA
-==========================*/
+/*==================================
+TEXT
+==================================*/
+
+.luna-name{
+
+    font-size:26px;
+
+}
+
+.online-status{
+
+    font-size:13px;
+
+}
+
+.hero-subtitle{
+
+    font-size:13px;
+
+}
+
+
+/*==================================
+BUTTONS
+==================================*/
+
+.send-btn,
+.more{
+
+    width:54px;
+
+    height:54px;
+
+    flex-shrink:0;
+
+}
+
+.input-container input{
+
+    font-size:16px;
+
+}
+
+
+/*==================================
+NO DESKTOP HOVER
+==================================*/
+
+.hero-card:hover{
+
+    transform:none;
+
+}
+
+}
+/*=========================================================
+            ORBBLOOM MOBILE.CSS
+                  PART 2
+=========================================================*/
+
+@media only screen and (max-width:768px){
+
+/*==================================
+MESSAGES
+==================================*/
+
 .messages{
 
-    flex:1;
+    position:fixed;
+
+    top:116px;
+
+    left:0;
+
+    right:0;
+
+    bottom:102px;
 
     overflow-y:auto;
-
     overflow-x:hidden;
 
-    margin-top:110px;
+    display:flex;
+    flex-direction:column;
 
-    margin-bottom:90px;
+    gap:18px;
 
-    min-height:0;
+    padding:16px 14px 30px;
+
+    scroll-behavior:smooth;
 
     -webkit-overflow-scrolling:touch;
 
+    overscroll-behavior:contain;
+
+    min-height:0;
+
+    z-index:5;
+
 }
-
-
-/* Hide scrollbar */
 
 .messages::-webkit-scrollbar{
 
-    width:0;
+    display:none;
 
 }
 
 
-/*==========================
+/*==================================
+MESSAGE
+==================================*/
+
+.message{
+
+    width:100%;
+
+    display:flex;
+
+}
+
+.message.user{
+
+    justify-content:flex-end;
+
+}
+
+.message.luna{
+
+    justify-content:flex-start;
+
+}
+
+.bubble{
+
+    max-width:84%;
+
+    padding:16px 18px;
+
+    border-radius:22px;
+
+    word-break:break-word;
+
+}
+
+
+/*==================================
 INPUT BAR
-==========================*/
+==================================*/
 
 .input-container{
 
     position:fixed;
 
     left:12px;
+
     right:12px;
 
     bottom:12px;
 
     height:78px;
 
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    z-index:100;
+
+}
+
+.input-container input{
+
+    flex:1;
+
+    min-width:0;
+
+    height:100%;
+
+}
+
+
+/*==================================
+MORE BUTTON
+==================================*/
+
+.more-wrapper{
+
+    position:relative;
+
+    flex-shrink:0;
+
     z-index:200;
 
 }
 
+.more{
 
-.more-wrapper{
-    position:relative;
+    width:54px;
+
+    height:54px;
+
 }
 
-/* Purple Galaxy Button */
 
-.more{
-    width:60px;
-    height:60px;
+/*==================================
+MORE MENU
+==================================*/
 
-    border:none;
-    cursor:pointer;
+.more-menu{
 
-    border-radius:20px;
+    position:fixed;
 
-    color:white;
-    font-size:28px;
+    left:16px;
 
-    background:
-    linear-gradient(
-        135deg,
-        #ff4fd8,
-        #35d0ff
-    );
+    bottom:102px;
 
-    box-shadow:
-        0 0 20px rgba(255,80,220,.4),
-        0 0 40px rgba(53,208,255,.2);
+    width:220px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    padding:12px;
+
+    border-radius:22px;
+
+    background:rgba(18,18,35,.96);
+
+    backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:translateY(20px) scale(.96);
 
     transition:.25s;
+
+    z-index:500;
+
 }
-
-.more:hover{
-    transform:scale(1.08) rotate(90deg);
-}
-
-/* ChatGPT Style Menu */
-
-
-/* OPEN */
 
 .more-menu.show{
 
     opacity:1;
+
     visibility:visible;
 
-    transform:
-    translateY(0)
-    scale(1);
-}
+    transform:translateY(0) scale(1);
 
-/* ITEMS */
+}
 
 .more-menu button,
 .more-menu label{
 
     display:flex;
+
     align-items:center;
 
     gap:12px;
@@ -537,323 +508,230 @@ INPUT BAR
 
     border-radius:16px;
 
+    background:rgba(255,255,255,.05);
+
     color:white;
 
     cursor:pointer;
 
-    background:
-    rgba(255,255,255,.04);
-
-    transition:.2s;
-}
-
-.more-menu button:hover,
-.more-menu label:hover{
-
-    background:
-    rgba(255,255,255,.1);
-
-    transform:
-    translateX(5px);
 }
 
 .more-menu input{
+
     display:none;
-}
-.more-wrapper{
-   position:relative;
-z-index:101;
+
 }
 
-.more-menu{
+
+/*==================================
+IMAGE PREVIEW
+==================================*/
+
+#imagePreviewContainer{
 
     position:fixed;
 
-    left:16px;
+    left:14px;
 
-    bottom:100px;
+    right:14px;
 
-    width:220px;
-
-    z-index:150;
-
-}
-/*==========================
-MESSAGE BUBBLES
-==========================*/
-
-.message{
-
-    width:100%;
+    bottom:98px;
 
     display:flex;
 
-}
+    gap:10px;
 
+    overflow-x:auto;
 
-.message.user{
+    z-index:150;
 
-    justify-content:flex-end;
-
-}
-
-
-.message.luna{
-
-    justify-content:flex-start;
+    padding:4px;
 
 }
 
+#imagePreviewContainer::-webkit-scrollbar{
 
-.bubble{
+    display:none;
 
-    max-width:82%;
+}
+
+.preview-image{
+
+    width:80px;
+
+    height:80px;
+
+    object-fit:cover;
+
+    border-radius:18px;
+
+}
+
+.remove-preview{
+
+    position:absolute;
+
+    top:-8px;
+
+    right:-8px;
 
 }
 
 
-/*==========================
-IMAGE
-==========================*/
+/*==================================
+CHAT IMAGE
+==================================*/
 
 .chat-image{
 
     max-width:220px;
 
+    border-radius:18px;
+
 }
 
 
-/*==========================
+/*==================================
 SAFE AREA
-==========================*/
+==================================*/
 
 .input-container{
 
-    padding-bottom:max(10px,env(safe-area-inset-bottom));
-
-}
-
-
-/*==========================
-NO PAGE SCROLL
-==========================*/
-
-body{
-
-    overflow:hidden;
-
-}
-
-
-/*==========================
-SMOOTH TOUCH
-==========================*/
-
-*{
-
-    -webkit-tap-highlight-color:transparent;
+    padding-bottom:max(8px,env(safe-area-inset-bottom));
 
 }
 
 }
 /*=========================================================
-        STEP 4 - PREMIUM MOBILE POLISH
+        PART 3 - FINAL MOBILE POLISH
 =========================================================*/
 
 @media only screen and (max-width:768px){
 
-/* ==========================
-   PHONE SAFE AREA
-========================== */
-
 :root{
-
     --header-height:110px;
     --input-height:90px;
-
 }
 
-/* Better scrolling */
+/* ==========================
+   Smooth scrolling
+========================== */
 
 .messages{
-
-    padding-top:10px;
-    padding-bottom:25px;
-
-    overscroll-behavior:contain;
-
-    touch-action:pan-y;
-
-}
-
-
-/* Smooth scrolling */
-
-.messages{
-
     scroll-behavior:smooth;
-
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior:contain;
+    touch-action:pan-y;
 }
-
-
-/* Remove bounce */
-
-body{
-
-    overscroll-behavior:none;
-
-}
-
 
 /* ==========================
-   BUTTON FEEDBACK
-========================== */
-
-.send-btn,
-.more,
-.mobile-menu{
-
-    transition:
-    transform .18s ease,
-    box-shadow .25s ease;
-
-}
-
-
-.send-btn:active,
-.more:active,
-.mobile-menu:active{
-
-    transform:scale(.92);
-
-}
-
-
-/* ==========================
-   INPUT
-========================== */
-
-.input-container{
-
-    transition:
-    bottom .25s ease,
-    transform .25s ease;
-
-}
-
-
-/* ==========================
-   SIDEBAR
+   Sidebar Animation
 ========================== */
 
 .sidebar{
-
+    transition:transform .28s cubic-bezier(.22,.61,.36,1);
     will-change:transform;
-
-    box-shadow:
-    20px 0 60px rgba(0,0,0,.45);
-
+    box-shadow:20px 0 60px rgba(0,0,0,.45);
 }
 
+/* ==========================
+   Overlay
+========================== */
+
+.mobile-overlay{
+    transition:opacity .25s ease,
+               visibility .25s ease;
+}
 
 /* ==========================
-   LUNA CARD
+   Header
 ========================== */
 
 .hero-card{
-
     will-change:transform;
-
 }
 
+/* ==========================
+   Input Bar
+========================== */
+
+.input-container{
+    transition:bottom .25s ease;
+    transform:translateZ(0);
+}
 
 /* ==========================
-   BUBBLE
+   Bubble Animation
 ========================== */
 
 .bubble{
-
     animation:messageIn .22s ease;
-
 }
-
 
 @keyframes messageIn{
 
     from{
-
         opacity:0;
-
-        transform:
-        translateY(8px);
-
+        transform:translateY(8px);
     }
 
     to{
-
         opacity:1;
-
-        transform:
-        translateY(0);
-
+        transform:translateY(0);
     }
 
 }
 
-
 /* ==========================
-   IMAGES
-========================== */
-
-.chat-image{
-
-    max-width:230px;
-
-    border-radius:20px;
-
-}
-
-
-/* ==========================
-   TAP HIGHLIGHT
-========================== */
-
-*{
-
-    -webkit-tap-highlight-color:transparent;
-
-}
-
-
-/* ==========================
-   FOCUS
-========================== */
-
-input{
-
-    caret-color:#35d0ff;
-
-}
-
-
-/* ==========================
-   PREVENT TEXT SELECT
+   Buttons
 ========================== */
 
 .mobile-menu,
-.send-btn,
-.more{
-
-    user-select:none;
-
+.more,
+.send-btn{
+    transition:
+        transform .18s ease,
+        box-shadow .25s ease;
 }
 
+.mobile-menu:active,
+.more:active,
+.send-btn:active{
+    transform:scale(.92);
+}
 
 /* ==========================
-   FPS
+   Images
 ========================== */
 
+.chat-image{
+    max-width:220px;
+    border-radius:20px;
+}
 
+.preview-image{
+    width:85px;
+    height:85px;
+}
 
+/* ==========================
+   Safe Area
+========================== */
+
+.input-container{
+    padding-bottom:max(8px,env(safe-area-inset-bottom));
+}
+
+/* ==========================
+   Remove Tap Highlight
+========================== */
+
+*{
+    -webkit-tap-highlight-color:transparent;
+}
+
+input{
+    caret-color:#35d0ff;
+}
 
 }
