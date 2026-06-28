@@ -1,92 +1,73 @@
-const sidebar = document.querySelector(".sidebar");
-const overlay = document.querySelector(".mobile-overlay");
-const menu = document.querySelector(".mobile-menu");
-const messages = document.querySelector(".messages");
+document.addEventListener("DOMContentLoaded", () => {
 
-let startX = 0;
+    const sidebar = document.querySelector(".sidebar");
+    const overlay = document.querySelector(".mobile-overlay");
+    const menu = document.querySelector(".mobile-menu");
+    const messages = document.querySelector(".messages");
 
-function openSidebar(){
-   console.log("OPEN SIDEBAR");
-    sidebar.classList.add("open");
-    overlay.classList.add("show");
+    let startX = 0;
 
-}
+    function openSidebar() {
+        if (!sidebar || !overlay) return;
 
-function closeSidebar(){
+        sidebar.classList.add("open");
+        overlay.classList.add("show");
+    }
 
-    sidebar.classList.remove("open");
-    overlay.classList.remove("show");
+    function closeSidebar() {
+        if (!sidebar || !overlay) return;
 
-}
+        sidebar.classList.remove("open");
+        overlay.classList.remove("show");
+    }
 
-if(menu){
-
-    menu.addEventListener("click",(e)=>{
-
-        e.stopPropagation();
-        openSidebar();
-
-    });
-
-}
-
-if(overlay){
-
-    overlay.addEventListener("click",closeSidebar);
-
-}
-
-document.addEventListener("touchstart",(e)=>{
-
-    startX=e.touches[0].clientX;
-
-},{passive:true});
-
-document.addEventListener("touchmove",(e)=>{
-
-    const x=e.touches[0].clientX;
-
-    if(!sidebar.classList.contains("open")){
-
-        if(startX<20 && x>100){
-
+    // CLICK MENU
+    if (menu) {
+        menu.addEventListener("click", (e) => {
+            e.stopPropagation();
             openSidebar();
-
-        }
-
-    }else{
-
-        if(x<startX-70){
-
-            closeSidebar();
-
-        }
-
-    }
-
-},{passive:true});
-
-function scrollToBottom(){
-
-    if(messages){
-
-        requestAnimationFrame(()=>{
-
-            messages.scrollTop=messages.scrollHeight;
-
         });
-
     }
 
-}
+    // CLICK OUTSIDE
+    if (overlay) {
+        overlay.addEventListener("click", closeSidebar);
+    }
 
+    // SWIPE
+    document.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+    }, { passive: true });
 
+    document.addEventListener("touchmove", (e) => {
+        const x = e.touches[0].clientX;
 
+        if (!sidebar) return;
 
-window.addEventListener("load",()=>{
+        if (!sidebar.classList.contains("open")) {
+            if (startX < 25 && x > startX + 80) {
+                openSidebar();
+            }
+        } else {
+            if (x < startX - 80) {
+                closeSidebar();
+            }
+        }
 
-    scrollToBottom();
+    }, { passive: true });
 
-    closeSidebar();
+    // SCROLL FIX
+    function scrollToBottom() {
+        if (!messages) return;
+
+        requestAnimationFrame(() => {
+            messages.scrollTop = messages.scrollHeight;
+        });
+    }
+
+    window.addEventListener("load", scrollToBottom);
+
+    // IMPORTANT: also run after DOM ready
+    setTimeout(scrollToBottom, 300);
 
 });

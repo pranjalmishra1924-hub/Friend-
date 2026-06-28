@@ -735,3 +735,13 @@ input{
 }
 
 }
+
+html, body {
+    overflow: hidden !important;
+    height: 100%;
+}
+
+.messages {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+}
