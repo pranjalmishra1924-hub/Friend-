@@ -72,3 +72,38 @@ function scrollToBottom(){
 
 }
  
+
+const more = document.getElementById("more");
+const moreMenu = document.getElementById("moreMenu");
+
+more.addEventListener("click", (e) => {
+
+    e.stopPropagation();
+
+    moreMenu.classList.toggle("show");
+
+});
+
+document.addEventListener("click", (e) => {
+
+    if(
+        !more.contains(e.target) &&
+        !moreMenu.contains(e.target)
+    ){
+        moreMenu.classList.remove("show");
+    }
+
+});
+
+document.getElementById("newChatBtn")
+.addEventListener("click", () => {
+
+    messages.innerHTML = "";
+
+    moreMenu.classList.remove("show");
+
+});
+
+
+
+

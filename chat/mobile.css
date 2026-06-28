@@ -477,19 +477,153 @@ INPUT BAR
 
 }
 
+
+.more-wrapper{
+    position:relative;
+}
+
+/* Purple Galaxy Button */
+
+.more{
+    width:60px;
+    height:60px;
+
+    border:none;
+    cursor:pointer;
+
+    border-radius:20px;
+
+    color:white;
+    font-size:28px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff4fd8,
+        #35d0ff
+    );
+
+    box-shadow:
+        0 0 20px rgba(255,80,220,.4),
+        0 0 40px rgba(53,208,255,.2);
+
+    transition:.25s;
+}
+
+.more:hover{
+    transform:scale(1.08) rotate(90deg);
+}
+
+/* ChatGPT Style Menu */
+
+.more-menu{
+overflow: visible;
+    position:absolute;
+
+    bottom:75px;
+    left:0;
+
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+
+    padding:12px;
+
+    min-width:180px;
+
+    border-radius:22px;
+
+    background:
+    rgba(18,18,35,.95);
+
+    backdrop-filter:blur(25px);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.5);
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:
+    translateY(15px)
+    scale(.95);
+
+    transition:.25s;
+
+    z-index:9999;
+}
+
+/* OPEN */
+
+.more-menu.show{
+
+    opacity:1;
+    visibility:visible;
+
+    transform:
+    translateY(0)
+    scale(1);
+}
+
+/* ITEMS */
+
+.more-menu button,
+.more-menu label{
+
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+    padding:14px 16px;
+
+    border:none;
+
+    border-radius:16px;
+
+    color:white;
+
+    cursor:pointer;
+
+    background:
+    rgba(255,255,255,.04);
+
+    transition:.2s;
+}
+
+.more-menu button:hover,
+.more-menu label:hover{
+
+    background:
+    rgba(255,255,255,.1);
+
+    transform:
+    translateX(5px);
+}
+
+.more-menu input{
+    display:none;
+}
 .more-wrapper{
     position: relative;
     z-index: 999999;
 }
 
 .more-menu{
-    position: absolute;
-    bottom: 70px;
-    left: 0;
 
-    z-index: 9999999;
+    position:fixed;
 
-    overflow: visible;
+    left:16px;
+
+    bottom:100px;
+
+    width:220px;
+
+    z-index:99999;
+
 }
 /*==========================
 MESSAGE BUBBLES
