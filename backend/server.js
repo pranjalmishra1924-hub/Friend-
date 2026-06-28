@@ -3,7 +3,7 @@ const axios = require("axios");
 const { v4: uuidv4 } = require("uuid");
 const conversations = {};
 
-const MAX_MESSAGES = 20;
+const MAX_MESSAGES = 15;
 const multer = require("multer");
 
 require("dotenv").config();
@@ -131,6 +131,7 @@ if (needsWebSearch) {
         },
         body: JSON.stringify({
             model: "openai/gpt-4o-mini",
+             max_tokens: 500,
             messages: [
                 {
                     role: "system",
