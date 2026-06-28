@@ -121,21 +121,50 @@ if (needsWebSearch) {
 
 }
 
-     const data = await response.json();
+    const response = await fetch(
+    "https://openrouter.ai/api/v1/chat/completions",
+    {
+        method: "POST",
+        headers: {
+            "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            model: "openai/gpt-4o-mini",
+            messages: [
+                {
+                    role: "system",
+                    content: `
+Today is ${new Date().toDateString()}.
+
+Current year: ${new Date().getFullYear()}.
+
+${webInfo ? `
+LATEST WEB INFORMATION:
+
+${webInfo}
+
+Use the web information above when answering.
+` : ""}
+
+ACT NATURALLY LIKE A HUMAN BEST FRIEND WOULD REACT IN A FUNNY MANNER.
+`
+                },
+                ...conversations[userId]
+            ]
+        })
+    }
+);
+
+const data = await response.json();
+
 console.log("=================================");
 console.log("HTTP Status:", response.status);
-console.log("Response:");
 console.log(JSON.stringify(data, null, 2));
 console.log("=================================");
-console.log("OpenRouter Response:", data);
-if (!response.ok || data.error) {
-    return res.status(response.status).json({
-        reply: data.error?.message || "Unknown OpenRouter error."
-    });
-}
 
 if (!response.ok || data.error) {
-    return res.status(500).json({
+    return res.status(response.status).json({
         reply: data.error?.message || "OpenRouter request failed."
     });
 }
@@ -144,13 +173,7 @@ const friendReply = data.choices?.[0]?.message?.content;
 
 if (!friendReply) {
     return res.status(500).json({
-        reply: "No response was returned from OpenRouter."
-    });
-}
-
-if (!friendReply) {
-    return res.status(500).json({
-        reply: "No reply returned by OpenRouter."
+        reply: "No response returned from OpenRouter."
     });
 }
 
@@ -158,7 +181,6 @@ conversations[userId].push({
     role: "assistant",
     content: friendReply
 });
-
       res.json({
     reply: friendReply
 });
