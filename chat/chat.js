@@ -23,11 +23,11 @@ const phrases = [
 
 "Ask Luna anything...",
 
-"Tell Luna about your day...",
+"Tell about your day...",
 
 "What's on your mind?",
 
-"Share a memory with Luna...",
+"Share a memory ...",
 
 "Need someone to talk to?",
 
