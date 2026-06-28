@@ -80,7 +80,13 @@ function scrollToBottom(){
 
 }
 
-window.addEventListener("load",scrollToBottom);
-window.addEventListener("resize",scrollToBottom);
 
 
+
+window.addEventListener("load",()=>{
+
+    scrollToBottom();
+
+    closeSidebar();
+
+});
