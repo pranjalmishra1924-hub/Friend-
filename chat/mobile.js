@@ -1,16 +1,14 @@
-const sidebar=document.querySelector(".sidebar");
-const overlay=document.querySelector(".mobile-overlay");
-const menu=document.querySelector(".mobile-menu");
+const sidebar = document.querySelector(".sidebar");
+const overlay = document.querySelector(".mobile-overlay");
+const menu = document.querySelector(".mobile-menu");
+const messages = document.querySelector(".messages");
 
-let startX=0;
-let currentX=0;
+let startX = 0;
 
 function openSidebar(){
 
     sidebar.classList.add("open");
     overlay.classList.add("show");
-
-    document.body.style.overflow="hidden";
 
 }
 
@@ -19,33 +17,46 @@ function closeSidebar(){
     sidebar.classList.remove("open");
     overlay.classList.remove("show");
 
-    document.body.style.overflow="";
+}
+
+if(menu){
+
+    menu.addEventListener("click",(e)=>{
+
+        e.stopPropagation();
+        openSidebar();
+
+    });
 
 }
 
-menu.addEventListener("click",openSidebar);
+if(overlay){
 
-overlay.addEventListener("click",closeSidebar);
+    overlay.addEventListener("click",closeSidebar);
+
+}
 
 document.addEventListener("touchstart",(e)=>{
 
     startX=e.touches[0].clientX;
 
-});
+},{passive:true});
 
 document.addEventListener("touchmove",(e)=>{
 
-    currentX=e.touches[0].clientX;
+    const x=e.touches[0].clientX;
 
-    if(startX<18 && currentX>95){
+    if(!sidebar.classList.contains("open")){
 
-        openSidebar();
+        if(startX<20 && x>100){
 
-    }
+            openSidebar();
 
-    if(sidebar.classList.contains("open")){
+        }
 
-        if(currentX<startX-70){
+    }else{
+
+        if(x<startX-70){
 
             closeSidebar();
 
@@ -53,37 +64,23 @@ document.addEventListener("touchmove",(e)=>{
 
     }
 
-});
+},{passive:true});
 
-window.addEventListener("resize",()=>{
-
-    scrollToBottom();
-
-});
 function scrollToBottom(){
 
-    const chat=document.querySelector(".messages");
+    if(messages){
 
-    requestAnimationFrame(()=>{
+        requestAnimationFrame(()=>{
 
-        chat.scrollTop=chat.scrollHeight;
+            messages.scrollTop=messages.scrollHeight;
 
-    });
+        });
+
+    }
 
 }
- 
 
-const moreBtn = document.getElementById("more");
-const moreMenu = document.getElementById("moreMenu");
-
-moreBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    moreMenu.classList.toggle("show");
-});
-
-document.addEventListener("click", () => {
-    moreMenu.classList.remove("show");
-});
-
+window.addEventListener("load",scrollToBottom);
+window.addEventListener("resize",scrollToBottom);
 
 

@@ -367,3 +367,52 @@ underlineBtn.addEventListener("click", () => {
 
 
 
+const sidebar=document.querySelector(".sidebar");
+
+const hamburger=document.querySelector(".hamburger");
+
+const overlay=document.querySelector(".mobile-overlay");
+
+hamburger.onclick=()=>{
+
+sidebar.classList.add("open");
+
+overlay.classList.add("show");
+
+}
+
+overlay.onclick=()=>{
+
+sidebar.classList.remove("open");
+
+overlay.classList.remove("show");
+
+}
+let startX=0;
+
+document.addEventListener("touchstart",e=>{
+
+startX=e.touches[0].clientX;
+
+});
+
+document.addEventListener("touchend",e=>{
+
+let endX=e.changedTouches[0].clientX;
+
+if(startX<25 && endX-startX>90){
+
+sidebar.classList.add("open");
+
+overlay.classList.add("show");
+
+}
+
+});
+moodFab.onclick=()=>{
+
+document
+.querySelector(".mood-card")
+.classList.toggle("open");
+
+}
