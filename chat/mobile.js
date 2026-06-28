@@ -6,7 +6,7 @@ const messages = document.querySelector(".messages");
 let startX = 0;
 
 function openSidebar(){
-
+   console.log("OPEN SIDEBAR");
     sidebar.classList.add("open");
     overlay.classList.add("show");
 

@@ -10,7 +10,7 @@ body{
 
     width:100%;
     height:100%;
-    overflow:hidden;
+    
 
 }
 
@@ -277,6 +277,7 @@ NO DESKTOP EFFECTS REMOVED
 
     /* THIS IS IMPORTANT */
     flex:0 0 auto !important;
+    transition:transform .35s ease;
 }
 
 
@@ -424,27 +425,19 @@ MESSAGE AREA
 
 .messages{
 
-    position:fixed;
+flex:1;
 
-    left:0;
-    right:0;
+overflow-y:auto;
 
-    top:118px;
-    bottom:98px;
+overflow-x:hidden;
 
-    overflow-y:auto;
-    overflow-x:hidden;
+padding:18px 14px;
 
-    padding:18px 14px;
+margin-top:110px;
 
-    display:flex;
-    flex-direction:column;
+margin-bottom:90px;
 
-    gap:18px;
-
-    -webkit-overflow-scrolling:touch;
-
-    scroll-behavior:smooth;
+-webkit-overflow-scrolling:touch;
 
 }
 
@@ -862,12 +855,6 @@ input{
 ========================== */
 
 
-.messages,
-.hero-card,
-.input-container{
 
-    transform:translateZ(0);
-
-}
 
 }
