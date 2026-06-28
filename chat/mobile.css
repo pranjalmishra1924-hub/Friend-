@@ -395,7 +395,7 @@ CHAT WRAPPER
     display:flex;
     flex-direction:column;
 
-    overflow:hidden;
+    overflow:visible;
 
 }
 
@@ -422,22 +422,21 @@ FIXED LUNA CARD
 /*==========================
 MESSAGE AREA
 ==========================*/
-
 .messages{
 
-flex:1;
+    flex:1;
 
-overflow-y:auto;
+    overflow-y:auto;
 
-overflow-x:hidden;
+    overflow-x:hidden;
 
-padding:18px 14px;
+    margin-top:110px;
 
-margin-top:110px;
+    margin-bottom:90px;
 
-margin-bottom:90px;
+    min-height:0;
 
--webkit-overflow-scrolling:touch;
+    -webkit-overflow-scrolling:touch;
 
 }
 
