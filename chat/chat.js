@@ -114,9 +114,9 @@ document.querySelector(".send-btn");
 
 const messages =
 document.querySelector(".messages");
-
+let isGenerating = false;
 async function sendMessage(){
-
+if (isGenerating) return;
 const text =
 input.value.trim();
 
@@ -162,7 +162,10 @@ userMessage.innerHTML = `
 messages.appendChild(userMessage);
 
 input.value = "";
+isGenerating = true;
 
+input.disabled = true;
+sendBtn.disabled = true;
 messages.scrollTop =
 messages.scrollHeight;
 try {
@@ -218,7 +221,12 @@ pastedImages = [];
 
     messages.scrollTop =
     messages.scrollHeight;
+isGenerating = false;
 
+input.disabled = false;
+sendBtn.disabled = false;
+
+input.focus();
 } catch(error){
 
     console.error(error);
@@ -236,6 +244,12 @@ pastedImages = [];
     `;
 
     messages.appendChild(errorReply);
+    isGenerating = false;
+
+input.disabled = false;
+sendBtn.disabled = false;
+
+input.focus();
 }
 }
 
@@ -249,7 +263,7 @@ input.addEventListener(
 (e)=>{
 
 if(e.key==="Enter"){
-
+if(isGenerating) return;
 sendMessage();
 
 }

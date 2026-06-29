@@ -324,7 +324,7 @@ MESSAGES
     padding:16px 14px 30px;
 
     scroll-behavior:smooth;
-
+ touch-action: pan-y;
     -webkit-overflow-scrolling:touch;
 
     overscroll-behavior:contain;
@@ -736,10 +736,7 @@ input{
 
 }
 
-html, body {
-    overflow: hidden !important;
-    height: 100%;
-}
+
 
 .messages {
     overflow-y: auto !important;
