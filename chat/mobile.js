@@ -49,14 +49,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }, { passive: true });
 
-    function scrollToBottom() {
-        const messages = document.querySelector(".messages");
-        if (!messages) return;
-
-        requestAnimationFrame(() => {
-            messages.scrollTop = messages.scrollHeight;
-        });
-    }
-
-    scrollToBottom();
 });

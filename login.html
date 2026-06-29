@@ -22,7 +22,9 @@ align-items:center;
 background:linear-gradient(135deg,#0d0628,#1c1147,#301b6d);
 overflow:hidden;
 }
-
+body{
+    visibility:hidden;
+}
 .login-card{
 width:420px;
 padding:40px;
@@ -175,8 +177,9 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import {
   getAuth,
   GoogleAuthProvider,
-  signInWithPopup
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  signInWithPopup,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"; 
 
 const firebaseConfig = {
   apiKey: "AIzaSyBShrpp7PlYyJewPxxN_wZ9FyOqvVv5ix0",
@@ -187,7 +190,12 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-
+// If already signed in, skip login page
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        window.location.replace("homepage/hp.html");
+    }
+});
 window.googleLogin = async function () {
 
   const provider = new GoogleAuthProvider();
@@ -232,7 +240,16 @@ function editName() {
     );
 
     document.getElementById("userName")
-    .textContent = `Hi ${newName} 👋`;
+    .textContent = `Hi ${newName} ♡`;
+    onAuthStateChanged(auth, (user) => {
+
+    if (user) {
+        window.location.replace("homepage/hp.html");
+    } else {
+        document.body.style.visibility = "visible";
+    }
+
+});
 }
 </script>
 </body>
